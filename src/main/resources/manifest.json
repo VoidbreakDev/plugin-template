@@ -1,20 +1,20 @@
 {
-  "Group": "dev.hytalemodding",
-  "Name": "ExamplePlugin",
-  "Version": "${version}",
-  "Description": "Description of your plugin",
+  "Group": "com.hyfactions",
+  "Name": "HyFactions-Enchanter",
+  "Version": "1.0.0",
+  "Description": "Comprehensive custom enchantment and magical abilities system for Hytale Factions servers",
   "Authors": [
     {
-      "Name": "Your Name",
-      "Email": "your.email@example.com",
-      "Url": "https://your-website.com"
+      "Name": "Voidbreak",
+      "Email": "contact@hyfactions.com",
+      "Url": "https://hyfactions.com"
     }
   ],
-  "Website": "https://your-plugin-website.com",
+  "Website": "https://hyfactions.com",
   "ServerVersion": "*",
   "Dependencies": {},
   "OptionalDependencies": {},
   "DisabledByDefault": false,
   "IncludesAssetPack": false,
-  "Main": "dev.hytalemodding.ExamplePlugin"
+  "Main": "com.hyfactions.enchanter.HyFactionsEnchanter"
 }

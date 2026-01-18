@@ -1,0 +1,389 @@
+# Magical Abilities Configuration
+# Abilities are triggered by enchanted items
+
+# ACTIVE ABILITIES (Player-activated with cooldowns)
+
+THUNDER_STRIKE:
+  type: ACTIVE
+  tier: EPIC
+  display-name: '&eThunder Strike'
+  description:
+    - '&7Strike enemies with lightning'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 30
+  mana-cost: 50
+  required-enchantments:
+    - CRITICAL_STRIKE:3
+  activation:
+    trigger: RIGHT_CLICK
+    item-type: WEAPON
+  effects:
+    - type: LIGHTNING
+      range: 10
+      damage: 8.0
+      targets: ENEMY
+    - type: PARTICLE
+      particle: FIREWORKS_SPARK
+      radius: 3
+  sound: ENTITY_LIGHTNING_BOLT_THUNDER
+
+SHADOW_STEP:
+  type: ACTIVE
+  tier: LEGENDARY
+  display-name: '&8Shadow Step'
+  description:
+    - '&7Teleport behind your target'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 45
+  mana-cost: 60
+  required-enchantments:
+    - SPEED:2
+  activation:
+    trigger: SNEAK_RIGHT_CLICK
+    item-type: ARMOR
+  effects:
+    - type: TELEPORT
+      range: 15
+      behind-target: true
+    - type: INVISIBILITY
+      duration: 3
+    - type: PARTICLE
+      particle: SMOKE_LARGE
+      radius: 2
+  sound: ENTITY_ENDERMAN_TELEPORT
+
+BERSERKER_RAGE:
+  type: ACTIVE
+  tier: LEGENDARY
+  display-name: '&cBerserker Rage'
+  description:
+    - '&7Temporary damage and speed boost'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 60
+  mana-cost: 70
+  required-enchantments:
+    - SHARPNESS_BOOST:4
+    - CRITICAL_STRIKE:3
+  activation:
+    trigger: DOUBLE_SNEAK
+    item-type: WEAPON
+  effects:
+    - type: POTION
+      potion: STRENGTH
+      amplifier: 2
+      duration: 10
+    - type: POTION
+      potion: SPEED
+      amplifier: 1
+      duration: 10
+    - type: PARTICLE
+      particle: REDSTONE
+      radius: 2
+  sound: ENTITY_ENDER_DRAGON_GROWL
+
+HEALING_WAVE:
+  type: ACTIVE
+  tier: EPIC
+  display-name: '&dHealing Wave'
+  description:
+    - '&7Heal yourself and nearby allies'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 40
+  mana-cost: 55
+  required-enchantments:
+    - REGENERATION_AURA:2
+  activation:
+    trigger: RIGHT_CLICK
+    item-type: ARMOR
+  effects:
+    - type: HEAL
+      amount: 10.0
+      radius: 5
+      targets: ALLY
+    - type: PARTICLE
+      particle: HEART
+      radius: 5
+  sound: BLOCK_BEACON_AMBIENT
+
+METEOR_RAIN:
+  type: ACTIVE
+  tier: LEGENDARY
+  display-name: '&6Meteor Rain'
+  description:
+    - '&7Rain fire upon your enemies'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 90
+  mana-cost: 100
+  required-enchantments:
+    - FIRE_ASPECT_BOOST:2
+    - CRITICAL_STRIKE:4
+  activation:
+    trigger: RIGHT_CLICK
+    item-type: WEAPON
+  effects:
+    - type: FIREBALL
+      count: 5
+      spread: 10
+      damage: 6.0
+    - type: FIRE
+      duration: 5
+      radius: 8
+    - type: PARTICLE
+      particle: FLAME
+      radius: 10
+  sound: ENTITY_BLAZE_SHOOT
+
+ICE_PRISON:
+  type: ACTIVE
+  tier: EPIC
+  display-name: '&bIce Prison'
+  description:
+    - '&7Freeze enemies in place'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 35
+  mana-cost: 45
+  required-enchantments:
+    - IRON_SKIN:3
+  activation:
+    trigger: SNEAK_RIGHT_CLICK
+    item-type: ARMOR
+  effects:
+    - type: FREEZE
+      duration: 5
+      radius: 6
+      targets: ENEMY
+    - type: POTION
+      potion: SLOWNESS
+      amplifier: 10
+      duration: 5
+    - type: PARTICLE
+      particle: SNOW_SHOVEL
+      radius: 6
+  sound: BLOCK_GLASS_BREAK
+
+WIND_BLADE:
+  type: ACTIVE
+  tier: RARE
+  display-name: '&fWind Blade'
+  description:
+    - '&7Launch a cutting wind projectile'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 20
+  mana-cost: 30
+  required-enchantments:
+    - SHARPNESS_BOOST:2
+  activation:
+    trigger: LEFT_CLICK
+    item-type: WEAPON
+  effects:
+    - type: PROJECTILE
+      speed: 2.0
+      damage: 5.0
+      range: 20
+    - type: PARTICLE
+      particle: CLOUD
+      radius: 1
+  sound: ENTITY_PHANTOM_FLAP
+
+# PASSIVE ABILITIES (Automatic triggers)
+
+VAMPIRIC_AURA:
+  type: PASSIVE
+  tier: RARE
+  display-name: '&4Vampiric Aura'
+  description:
+    - '&7Heal when dealing damage'
+  required-enchantments:
+    - LIFESTEAL:2
+  effects:
+    - type: HEAL_ON_HIT
+      heal-percent: 15
+  trigger: ENTITY_DAMAGE
+
+THORNS_EXPLOSION:
+  type: PASSIVE
+  tier: EPIC
+  display-name: '&6Thorns Explosion'
+  description:
+    - '&7Damage nearby enemies when hit'
+  required-enchantments:
+    - THORNS_BOOST:3
+  effects:
+    - type: AREA_DAMAGE
+      radius: 3
+      damage: 4.0
+      targets: ENEMY
+    - type: PARTICLE
+      particle: EXPLOSION_NORMAL
+      radius: 3
+  trigger: ENTITY_DAMAGED_BY_ENTITY
+
+SOUL_HARVEST:
+  type: PASSIVE
+  tier: LEGENDARY
+  display-name: '&5Soul Harvest'
+  description:
+    - '&7Gain strength on enemy kills'
+  required-enchantments:
+    - CRITICAL_STRIKE:5
+    - SHARPNESS_BOOST:5
+  effects:
+    - type: POTION
+      potion: STRENGTH
+      amplifier: 1
+      duration: 10
+      stack: true
+      max-stacks: 5
+    - type: PARTICLE
+      particle: SOUL
+      radius: 2
+  trigger: ENTITY_DEATH
+
+PHOENIX_REBIRTH:
+  type: PASSIVE
+  tier: LEGENDARY
+  display-name: '&cPhoenix Rebirth'
+  description:
+    - '&7Revive on death once per day'
+  required-enchantments:
+    - REGENERATION_AURA:3
+  cooldown: 86400 # 24 hours
+  effects:
+    - type: REVIVE
+      health: 10.0
+    - type: POTION
+      potion: FIRE_RESISTANCE
+      amplifier: 0
+      duration: 10
+    - type: PARTICLE
+      particle: FLAME
+      radius: 5
+  trigger: PLAYER_DEATH
+  sound: ENTITY_PHOENIX_HURT
+
+CHAIN_LIGHTNING:
+  type: PASSIVE
+  tier: EPIC
+  display-name: '&eChain Lightning'
+  description:
+    - '&7Lightning chains to nearby enemies'
+  required-enchantments:
+    - CRITICAL_STRIKE:3
+  effects:
+    - type: CHAIN_DAMAGE
+      chains: 3
+      damage: 3.0
+      range: 8
+    - type: PARTICLE
+      particle: FIREWORKS_SPARK
+      radius: 1
+  trigger: CRITICAL_HIT
+  chance: 25
+
+MANA_SHIELD:
+  type: PASSIVE
+  tier: LEGENDARY
+  display-name: '&bMana Shield'
+  description:
+    - '&7Consume mana to block damage'
+  required-enchantments:
+    - IRON_SKIN:4
+  effects:
+    - type: DAMAGE_ABSORB
+      absorb-percent: 50
+      mana-per-damage: 2
+  trigger: ENTITY_DAMAGED
+
+EARTH_BLESSING:
+  type: PASSIVE
+  tier: RARE
+  display-name: '&2Earth Blessing'
+  description:
+    - '&7Increased mining yields'
+  required-enchantments:
+    - FORTUNE_BOOST:2
+  effects:
+    - type: BONUS_DROPS
+      multiplier: 1.5
+    - type: PARTICLE
+      particle: VILLAGER_HAPPY
+      radius: 1
+  trigger: BLOCK_BREAK
+
+SWIFT_FEET:
+  type: PASSIVE
+  tier: COMMON
+  display-name: '&fSwift Feet'
+  description:
+    - '&7Permanent speed boost'
+  required-enchantments:
+    - SPEED:1
+  effects:
+    - type: POTION
+      potion: SPEED
+      amplifier: 0
+      duration: -1 # Permanent while equipped
+  trigger: ITEM_EQUIPPED
+
+# COMBO ABILITIES (Require multiple enchantment types)
+
+ELEMENTAL_FURY:
+  type: COMBO
+  tier: LEGENDARY
+  display-name: '&6Elemental Fury'
+  description:
+    - '&7Combine fire, ice, and lightning'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 120
+  mana-cost: 150
+  required-enchantments:
+    - FIRE_ASPECT_BOOST:2
+    - CRITICAL_STRIKE:4
+  required-abilities:
+    - THUNDER_STRIKE
+    - METEOR_RAIN
+  activation:
+    trigger: RIGHT_CLICK
+    item-type: WEAPON
+    combo-keys: [SNEAK, RIGHT_CLICK, RIGHT_CLICK]
+  effects:
+    - type: MULTI_ELEMENT
+      elements: [FIRE, ICE, LIGHTNING]
+      damage: 15.0
+      radius: 10
+    - type: PARTICLE
+      particle: END_ROD
+      radius: 10
+  sound: ENTITY_WITHER_SPAWN
+
+TITAN_DEFENSE:
+  type: COMBO
+  tier: LEGENDARY
+  display-name: '&7Titan Defense'
+  description:
+    - '&7Ultimate defensive stance'
+    - '&7Cooldown: &e{cooldown}s'
+  cooldown: 100
+  mana-cost: 120
+  required-enchantments:
+    - IRON_SKIN:4
+    - THORNS_BOOST:3
+    - REGENERATION_AURA:3
+  activation:
+    trigger: DOUBLE_SNEAK
+    item-type: ARMOR
+  effects:
+    - type: DAMAGE_REDUCTION
+      reduction-percent: 80
+      duration: 15
+    - type: POTION
+      potion: RESISTANCE
+      amplifier: 3
+      duration: 15
+    - type: REFLECT_DAMAGE
+      reflect-percent: 100
+      duration: 15
+    - type: PARTICLE
+      particle: BARRIER
+      radius: 3
+  sound: BLOCK_ANVIL_LAND

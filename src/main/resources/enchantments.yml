@@ -1,0 +1,490 @@
+# Enchantment Definitions
+# Configure all available enchantments here
+
+# COMBAT ENCHANTMENTS - WEAPONS
+
+LIFESTEAL:
+  tier: RARE
+  category: COMBAT
+  type: WEAPON
+  display-name: '&cLifesteal'
+  description:
+    - '&7Heal for a percentage of damage dealt'
+    - '&7to enemies'
+  max-level: 3
+  levels:
+    1:
+      heal-percent: 10
+      cost: 5000
+    2:
+      heal-percent: 20
+      cost: 12000
+    3:
+      heal-percent: 30
+      cost: 25000
+  applicable-items:
+    - SWORD
+    - AXE
+  conflicts:
+    - POISON_STRIKE
+  particle: HEART
+  sound: ENTITY_PLAYER_LEVELUP
+
+CRITICAL_STRIKE:
+  tier: EPIC
+  category: COMBAT
+  type: WEAPON
+  display-name: '&6Critical Strike'
+  description:
+    - '&7Chance to deal bonus damage'
+    - '&7with critical hits'
+  max-level: 5
+  levels:
+    1:
+      crit-chance: 10
+      crit-multiplier: 1.5
+      cost: 8000
+    2:
+      crit-chance: 15
+      crit-multiplier: 1.75
+      cost: 16000
+    3:
+      crit-chance: 20
+      crit-multiplier: 2.0
+      cost: 30000
+    4:
+      crit-chance: 25
+      crit-multiplier: 2.25
+      cost: 50000
+    5:
+      crit-chance: 30
+      crit-multiplier: 2.5
+      cost: 80000
+  applicable-items:
+    - SWORD
+    - AXE
+    - BOW
+  synergies:
+    - SHARPNESS_BOOST
+  particle: CRIT
+  sound: ENTITY_ARROW_HIT_PLAYER
+
+SHARPNESS_BOOST:
+  tier: COMMON
+  category: COMBAT
+  type: WEAPON
+  display-name: '&eSharpness Boost'
+  description:
+    - '&7Increases weapon damage'
+  max-level: 5
+  levels:
+    1:
+      damage-bonus: 1.0
+      cost: 2000
+    2:
+      damage-bonus: 2.0
+      cost: 4000
+    3:
+      damage-bonus: 3.0
+      cost: 6000
+    4:
+      damage-bonus: 4.0
+      cost: 8000
+    5:
+      damage-bonus: 5.0
+      cost: 10000
+  applicable-items:
+    - SWORD
+    - AXE
+  particle: SWEEP_ATTACK
+  sound: ITEM_SWORD_HIT
+
+POISON_STRIKE:
+  tier: RARE
+  category: COMBAT
+  type: WEAPON
+  display-name: '&2Poison Strike'
+  description:
+    - '&7Apply poison effect on hit'
+  max-level: 3
+  levels:
+    1:
+      poison-duration: 3
+      poison-amplifier: 0
+      cost: 6000
+    2:
+      poison-duration: 5
+      poison-amplifier: 1
+      cost: 14000
+    3:
+      poison-duration: 7
+      poison-amplifier: 2
+      cost: 28000
+  applicable-items:
+    - SWORD
+    - BOW
+  conflicts:
+    - LIFESTEAL
+    - FIRE_ASPECT_BOOST
+  particle: SLIME
+  sound: ENTITY_SPIDER_AMBIENT
+
+FIRE_ASPECT_BOOST:
+  tier: RARE
+  category: COMBAT
+  type: WEAPON
+  display-name: '&cFire Aspect'
+  description:
+    - '&7Set enemies ablaze'
+  max-level: 2
+  levels:
+    1:
+      fire-duration: 4
+      cost: 5000
+    2:
+      fire-duration: 8
+      cost: 12000
+  applicable-items:
+    - SWORD
+  conflicts:
+    - POISON_STRIKE
+  particle: FLAME
+  sound: ITEM_FIRECHARGE_USE
+
+# COMBAT ENCHANTMENTS - ARMOR
+
+IRON_SKIN:
+  tier: COMMON
+  category: COMBAT
+  type: ARMOR
+  display-name: '&7Iron Skin'
+  description:
+    - '&7Reduce incoming damage'
+  max-level: 4
+  levels:
+    1:
+      damage-reduction: 5
+      cost: 3000
+    2:
+      damage-reduction: 10
+      cost: 6000
+    3:
+      damage-reduction: 15
+      cost: 12000
+    4:
+      damage-reduction: 20
+      cost: 24000
+  applicable-items:
+    - HELMET
+    - CHESTPLATE
+    - LEGGINGS
+    - BOOTS
+  particle: BARRIER
+  sound: ITEM_ARMOR_EQUIP_IRON
+
+THORNS_BOOST:
+  tier: RARE
+  category: COMBAT
+  type: ARMOR
+  display-name: '&6Thorns'
+  description:
+    - '&7Reflect damage to attackers'
+  max-level: 3
+  levels:
+    1:
+      reflect-percent: 15
+      cost: 7000
+    2:
+      reflect-percent: 30
+      cost: 15000
+    3:
+      reflect-percent: 50
+      cost: 30000
+  applicable-items:
+    - CHESTPLATE
+  particle: DAMAGE_INDICATOR
+  sound: ENTITY_GUARDIAN_HURT
+
+REGENERATION_AURA:
+  tier: EPIC
+  category: COMBAT
+  type: ARMOR
+  display-name: '&dRegeneration Aura'
+  description:
+    - '&7Slowly regenerate health'
+  max-level: 3
+  levels:
+    1:
+      regen-rate: 0.5
+      cost: 10000
+    2:
+      regen-rate: 1.0
+      cost: 22000
+    3:
+      regen-rate: 2.0
+      cost: 45000
+  applicable-items:
+    - CHESTPLATE
+  particle: VILLAGER_HAPPY
+  sound: BLOCK_BEACON_AMBIENT
+
+FEATHER_FALLING_BOOST:
+  tier: COMMON
+  category: COMBAT
+  type: ARMOR
+  display-name: '&bFeather Falling'
+  description:
+    - '&7Reduce fall damage'
+  max-level: 4
+  levels:
+    1:
+      reduction-percent: 25
+      cost: 2000
+    2:
+      reduction-percent: 50
+      cost: 4000
+    3:
+      reduction-percent: 75
+      cost: 8000
+    4:
+      reduction-percent: 100
+      cost: 16000
+  applicable-items:
+    - BOOTS
+  particle: CLOUD
+  sound: ENTITY_BAT_TAKEOFF
+
+# UTILITY ENCHANTMENTS
+
+HASTE:
+  tier: COMMON
+  category: UTILITY
+  type: TOOL
+  display-name: '&eHaste'
+  description:
+    - '&7Mine blocks faster'
+  max-level: 3
+  levels:
+    1:
+      speed-multiplier: 1.3
+      cost: 3000
+    2:
+      speed-multiplier: 1.6
+      cost: 6000
+    3:
+      speed-multiplier: 2.0
+      cost: 12000
+  applicable-items:
+    - PICKAXE
+    - SHOVEL
+    - AXE
+  particle: CRIT_MAGIC
+  sound: BLOCK_ANVIL_USE
+
+AUTO_SMELT:
+  tier: RARE
+  category: UTILITY
+  type: TOOL
+  display-name: '&6Auto-Smelt'
+  description:
+    - '&7Automatically smelt mined ores'
+  max-level: 1
+  levels:
+    1:
+      cost: 15000
+  applicable-items:
+    - PICKAXE
+  particle: FLAME
+  sound: BLOCK_FURNACE_FIRE_CRACKLE
+
+FORTUNE_BOOST:
+  tier: EPIC
+  category: UTILITY
+  type: TOOL
+  display-name: '&aFortune'
+  description:
+    - '&7Increase drop yields'
+  max-level: 3
+  levels:
+    1:
+      bonus-drops: 1
+      cost: 10000
+    2:
+      bonus-drops: 2
+      cost: 25000
+    3:
+      bonus-drops: 3
+      cost: 50000
+  applicable-items:
+    - PICKAXE
+    - SHOVEL
+  conflicts:
+    - SILK_TOUCH_BOOST
+  particle: VILLAGER_HAPPY
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+
+SILK_TOUCH_BOOST:
+  tier: RARE
+  category: UTILITY
+  type: TOOL
+  display-name: '&fSilk Touch'
+  description:
+    - '&7Mine blocks in their original form'
+  max-level: 1
+  levels:
+    1:
+      cost: 20000
+  applicable-items:
+    - PICKAXE
+    - SHOVEL
+    - AXE
+  conflicts:
+    - FORTUNE_BOOST
+  particle: ENCHANTMENT_TABLE
+  sound: BLOCK_ENCHANTMENT_TABLE_USE
+
+EXPERIENCE_BOOST:
+  tier: RARE
+  category: UTILITY
+  type: TOOL
+  display-name: '&bExperience Boost'
+  description:
+    - '&7Gain bonus experience'
+  max-level: 3
+  levels:
+    1:
+      exp-multiplier: 1.5
+      cost: 8000
+    2:
+      exp-multiplier: 2.0
+      cost: 18000
+    3:
+      exp-multiplier: 3.0
+      cost: 35000
+  applicable-items:
+    - PICKAXE
+    - SHOVEL
+    - AXE
+    - SWORD
+  particle: ENCHANTMENT_TABLE
+  sound: ENTITY_PLAYER_LEVELUP
+
+SPEED:
+  tier: COMMON
+  category: UTILITY
+  type: ARMOR
+  display-name: '&fSpeed'
+  description:
+    - '&7Increases movement speed'
+  max-level: 3
+  levels:
+    1:
+      speed-boost: 0.1
+      cost: 4000
+    2:
+      speed-boost: 0.2
+      cost: 9000
+    3:
+      speed-boost: 0.3
+      cost: 18000
+  applicable-items:
+    - BOOTS
+  particle: FIREWORKS_SPARK
+  sound: ENTITY_HORSE_GALLOP
+
+# FACTION ENCHANTMENTS
+
+TERRITORY_GUARD:
+  tier: LEGENDARY
+  category: FACTION
+  type: ARMOR
+  display-name: '&5Territory Guard'
+  description:
+    - '&7Bonus defense in faction land'
+  max-level: 3
+  levels:
+    1:
+      defense-bonus: 15
+      cost: 30000
+    2:
+      defense-bonus: 25
+      cost: 60000
+    3:
+      defense-bonus: 40
+      cost: 100000
+  applicable-items:
+    - CHESTPLATE
+  requires-faction: true
+  particle: END_ROD
+  sound: BLOCK_BEACON_POWER_SELECT
+
+RAID_MASTER:
+  tier: LEGENDARY
+  category: FACTION
+  type: WEAPON
+  display-name: '&4Raid Master'
+  description:
+    - '&7Increased damage during raids'
+  max-level: 3
+  levels:
+    1:
+      raid-damage-bonus: 20
+      cost: 35000
+    2:
+      raid-damage-bonus: 35
+      cost: 70000
+    3:
+      raid-damage-bonus: 50
+      cost: 120000
+  applicable-items:
+    - SWORD
+    - AXE
+  requires-faction: true
+  particle: REDSTONE
+  sound: ENTITY_ENDER_DRAGON_GROWL
+
+RESOURCE_BLESSING:
+  tier: EPIC
+  category: FACTION
+  type: TOOL
+  display-name: '&2Resource Blessing'
+  description:
+    - '&7Bonus resources in faction land'
+  max-level: 3
+  levels:
+    1:
+      resource-multiplier: 1.2
+      cost: 15000
+    2:
+      resource-multiplier: 1.5
+      cost: 35000
+    3:
+      resource-multiplier: 2.0
+      cost: 65000
+  applicable-items:
+    - PICKAXE
+    - SHOVEL
+  requires-faction: true
+  particle: VILLAGER_HAPPY
+  sound: ENTITY_VILLAGER_YES
+
+ALLY_PROTECTION:
+  tier: LEGENDARY
+  category: FACTION
+  type: ARMOR
+  display-name: '&bAlly Protection'
+  description:
+    - '&7Reduce damage from allies'
+  max-level: 2
+  levels:
+    1:
+      ally-damage-reduction: 50
+      cost: 40000
+    2:
+      ally-damage-reduction: 75
+      cost: 80000
+  applicable-items:
+    - CHESTPLATE
+  requires-faction: true
+  particle: HEART
+  sound: BLOCK_BELL_USE

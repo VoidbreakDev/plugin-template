@@ -1,0 +1,161 @@
+# HyFactions Enchanter Configuration
+# Advanced enchantment and magical abilities system
+
+# Database Configuration
+database:
+  # Options: SQLITE, MYSQL
+  type: SQLITE
+
+  # SQLite settings
+  sqlite:
+    file: enchanter.db
+
+  # MySQL settings
+  mysql:
+    host: localhost
+    port: 3306
+    database: hyfactions_enchanter
+    username: root
+    password: changeme
+    # Connection pool settings
+    pool:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+# Economy Integration
+economy:
+  enabled: true
+  # Cost multipliers per tier
+  cost-multipliers:
+    COMMON: 1.0
+    RARE: 2.5
+    EPIC: 5.0
+    LEGENDARY: 10.0
+  # Base costs for enchantment operations
+  base-costs:
+    apply: 1000
+    remove: 500
+    combine: 2000
+
+# Enchantment System Settings
+enchantments:
+  # Maximum enchantments per item
+  max-enchantments-per-item: 5
+
+  # Allow enchantment stacking (same enchant multiple levels)
+  allow-stacking: false
+
+  # Enchantment conflict checking
+  check-conflicts: true
+
+  # Success rates by tier (0.0-1.0)
+  success-rates:
+    COMMON: 0.95
+    RARE: 0.80
+    EPIC: 0.60
+    LEGENDARY: 0.40
+
+  # Enchantment combination bonuses
+  combination-bonuses:
+    enabled: true
+    # Synergies grant bonus effects
+    synergy-multiplier: 1.25
+
+# Magical Abilities Settings
+abilities:
+  # Global cooldown between ability uses (seconds)
+  global-cooldown: 1.0
+
+  # Allow abilities in combat
+  allow-in-combat: true
+
+  # Mana system (if enabled, abilities cost mana)
+  mana-system:
+    enabled: false
+    max-mana: 100
+    regen-rate: 1.0 # per second
+    regen-delay: 5.0 # seconds after ability use
+
+# Faction Integration
+faction:
+  enabled: true
+
+  # Bonus multipliers for faction land
+  territory-bonus:
+    damage-multiplier: 1.15
+    defense-multiplier: 1.10
+    resource-multiplier: 1.20
+
+  # Raid bonuses
+  raid-bonus:
+    attacker-damage: 1.10
+    defender-defense: 1.15
+
+  # Faction power requirements
+  power-requirements:
+    COMMON: 0
+    RARE: 50
+    EPIC: 100
+    LEGENDARY: 200
+
+# Particle Effects
+effects:
+  enabled: true
+
+  # Particle types for each tier
+  particles:
+    COMMON: VILLAGER_HAPPY
+    RARE: SPELL_MOB
+    EPIC: SPELL_WITCH
+    LEGENDARY: END_ROD
+
+  # Play sound on enchant activation
+  sounds:
+    enabled: true
+    volume: 0.5
+    pitch: 1.0
+
+# Performance Settings
+performance:
+  # Cache size for enchantment data
+  cache-size: 1000
+
+  # Cache expiry time (minutes)
+  cache-expiry: 30
+
+  # Async database operations
+  async-database: true
+
+  # Update interval for periodic effects (ticks)
+  update-interval: 20
+
+# Admin Tools
+admin:
+  # Enable debug mode
+  debug: false
+
+  # Log enchantment applications
+  log-applications: true
+
+  # Statistics tracking
+  track-statistics: true
+
+  # Balance testing mode (no costs, 100% success)
+  testing-mode: false
+
+# Messages
+messages:
+  prefix: '&8[&6HyEnchanter&8] &r'
+  no-permission: '&cYou do not have permission to use this command.'
+  player-only: '&cThis command can only be used by players.'
+  invalid-item: '&cYou must be holding a valid item.'
+  enchant-success: '&aSuccessfully applied &e{enchant} &ato your item!'
+  enchant-failed: '&cEnchantment application failed!'
+  max-enchants-reached: '&cThis item already has the maximum number of enchantments.'
+  insufficient-funds: '&cYou need &e{amount} &cto perform this action.'
+  cooldown-active: '&cAbility on cooldown for &e{time} &cseconds.'
+  ability-activated: '&aActivated &e{ability}&a!'
+  config-reloaded: '&aConfiguration reloaded successfully!'
